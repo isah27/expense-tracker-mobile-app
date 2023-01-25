@@ -1,0 +1,73 @@
+name: expense_tracker
+description: A new Flutter project.
+
+#
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.16.1 <3.0.0"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+ 
+  fluttertoast: ^8.0.9 
+  
+  # database storage
+  sqflite: ^2.0.0+3
+
+  # format DateTime
+  intl: ^0.17.0
+
+  # display todos in grid
+  flutter_staggered_grid_view: ^0.4.0-nullsafety.3
+  # chart flutter
+  path_provider: ^2.0.9
+  syncfusion_flutter_charts: ^20.1.47+1
+  flutter_launcher_icons: ^0.9.2
+  rename: ^2.0.1
+  # responsive packages
+  device_preview: ^1.1.0
+  sizer: ^2.0.15
+  
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+ 
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/EtrackerIcon.png"
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^1.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/
+   
+
+  
