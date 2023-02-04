@@ -67,7 +67,12 @@ class ChartExpense {
   String? price;
   String? date;
   Map<String, dynamic> tomap() {
-    var map = <String, dynamic>{colUserId:userId, colBId: bId, colPrice: price, colDate: date};
+    var map = <String, dynamic>{
+      colUserId: userId,
+      colBId: bId,
+      colPrice: price,
+      colDate: date
+    };
     if (id != null) map[colId] = id;
     return map;
   }
@@ -137,4 +142,17 @@ class SignUp {
     if (id != null) map[colId] = id;
     return map;
   }
+}
+
+class GoogleLogin {
+  GoogleLogin(
+      {this.email = "google63@gmail.com",
+      this.userId = 1,
+      this.password = "9999@google",
+      this.userName = "Google Team"});
+
+  int userId;
+  String email;
+  String password;
+  String userName;
 }

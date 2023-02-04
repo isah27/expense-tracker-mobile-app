@@ -17,8 +17,10 @@ class LoginPage extends StatefulWidget {
 class LoginPageState extends State<LoginPage> {
   //form key
   final _formKey = GlobalKey<FormState>();
-  static int? userId;
+  static int? userId = 1;
   static String? username;
+  // google login details
+  final googleLogin = GoogleLogin();
   //editing controller
   final TextEditingController mailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -113,25 +115,41 @@ class LoginPageState extends State<LoginPage> {
     var form = _formKey.currentState;
     if (form!.validate()) {
       form.save();
-      List<SignUp> user = await _dbHelper!.fetchUser(email, password);
-      if (user.isNotEmpty) {
-        if (user.first.email == email && user.first.password == password) {
-          setState(() {
-            userId = user.first.id;
-            username = user.first.firstName! + " " + user.first.secondName!;
-            loginError = "hi";
-          });
 
-          Navigator.pushAndRemoveUntil(
-              (context),
-              MaterialPageRoute(builder: (context) => const BudgetInputPage()),
-              (route) => false);
-        }
-      } else {
+      if (email.toLowerCase() == googleLogin.email.toLowerCase() &&
+          password.toLowerCase() == googleLogin.password.toLowerCase()) {
         setState(() {
-          loginError = "User not found!";
-          Fluttertoast.showToast(msg: "User not found!");
+          userId = googleLogin.userId;
+          username = googleLogin.userName;
+          loginError = "hi";
         });
+
+        Navigator.pushAndRemoveUntil(
+            (context),
+            MaterialPageRoute(builder: (context) => const BudgetInputPage()),
+            (route) => false);
+      } else {
+        List<SignUp> user = await _dbHelper!.fetchUser(email, password);
+        if (user.isNotEmpty) {
+          if (user.first.email == email && user.first.password == password) {
+            setState(() {
+              userId = user.first.id;
+              username = user.first.firstName! + " " + user.first.secondName!;
+              loginError = "hi";
+            });
+
+            Navigator.pushAndRemoveUntil(
+                (context),
+                MaterialPageRoute(
+                    builder: (context) => const BudgetInputPage()),
+                (route) => false);
+          }
+        } else {
+          setState(() {
+            loginError = "User not found!";
+            Fluttertoast.showToast(msg: "User not found!");
+          });
+        }
       }
     }
   }
@@ -149,5 +167,3 @@ class LoginPageState extends State<LoginPage> {
     }
   }
 }
-
-

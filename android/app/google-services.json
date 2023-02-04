@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:233445190485:android:956d37fc00de2e53fa9ddc",
         "android_client_info": {
-          "package_name": "com.example.expense_tracker"
+          "package_name": "com.ntech.expensetracker"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "233445190485-lhatbag40pf2o26estbgn0064mjm0psk.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.expense_tracker",
+            "package_name": "com.ntech.expensetracker",
             "certificate_hash": "997c2f566b7b268387773d39c9d49268ce6f3ba3"
           }
         },
